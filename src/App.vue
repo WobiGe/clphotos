@@ -1,9 +1,12 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Startseite</router-link> |
+    <router-link to="/portfolio">Portfolio</router-link> |
+    <router-link to="/aboutme">Über mich</router-link> |
+    <router-link to="/contact">Kontakt</router-link>
+    <router-view/>
   </div>
-  <router-view/>
+
 </template>
 
 <style>
