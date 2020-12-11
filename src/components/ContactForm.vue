@@ -1,5 +1,6 @@
 <template>
     <div>
+        <p>Pommes</p>
     </div>
 </template>
 
@@ -7,7 +8,7 @@
 import {Vue} from 'vue-class-component'
 import VueFinalModel from 'vue-final-modal'
 
-export default class ContactPage extends Vue{
-    showModal = false;
+export default class ContactForm extends Vue{
+    somevalue = false;
 }
 </script>

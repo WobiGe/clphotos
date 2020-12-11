@@ -10,7 +10,7 @@ import ContactPage from '@/components/ContactPage.vue'; // @ is an alias to /src
 
 @Options({
   components: {
-    ContactPage,
+    ContactPage
   },
 })
 export default class Contact extends Vue {}
