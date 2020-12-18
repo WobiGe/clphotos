@@ -5,23 +5,23 @@
       classes="modal-container"
       content-class="modal-content"
     >
-      <span class="modal__title">Termin buchen</span>
+      <h2>Termin buchen</h2>
       <div class="modal__content">
-          <label>Betreff:
-            <input type="text">
-          </label>
-          <label>E-Mail:
-            <input type="email">
-          </label>
-          <label>Ihre Nachricht:
-            <textarea/>
-          </label>
+        <div class="form-group" style="text-align: left;">
+          <label style="margin-bottom: 0px">Betreff:</label>
+          <input v-model="caption" style="margin-bottom: 8px" class="form-control" type="text">
+          <label style="margin-bottom: 0px">E-Mail:</label>
+          <input v-model="emailAdress" style="margin-bottom: 8px" class="form-control" type="email">
+          <label style="margin-bottom: 0px">Ihre Nachricht:</label>
+          <textarea v-model="message" style="margin-bottom: 8px" class="form-control message-area"/>
+          </div>
       </div>
       <div class="modal__action">
-        <button class="vfm-btn" @click="showModal = false">Beenden</button>
+        <button class="btn-sm btn-dark modal__close" type="button" @click="showModal = false">x</button>
+        <button @click="sendMessage" class="btn btn-dark" type="button" >Abschicken</button>
       </div>
     </vue-final-modal>
-    <button class="vfm-btn" @click="showModal = true">Open modal</button>
+    <button class="btn btn-dark" @click="showModal = true">Buchen</button>
   </div>
 </template>
 
@@ -63,6 +63,10 @@
   top: 0.5rem;
   right: 0.5rem;
 }
+
+.message-area {
+  min-height: 250px;
+}
 </style>
 
 <style scoped>
@@ -78,5 +82,14 @@ import VueFinalModel from 'vue-final-modal'
 
 export default class ContactForm extends Vue{
     showModal = false;
+    emailAdress = "";
+    caption = "";
+    message = "";
+
+    sendMessage(){
+      this.emailAdress = "";
+      this.caption = "";
+      this.message = "";
+    }
 }
 </script>
