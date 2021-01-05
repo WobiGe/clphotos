@@ -38,6 +38,7 @@
 
 .page-zone{
   grid-row: 2;
+  
 }
 
 .footer-zone{

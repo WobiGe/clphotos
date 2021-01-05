@@ -78,6 +78,7 @@
 
 <script lang="ts">
 import {Vue} from 'vue-class-component'
+import { defineComponent } from 'vue'
 import VueFinalModel from 'vue-final-modal'
 
 export default class ContactForm extends Vue{
