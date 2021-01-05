@@ -1,10 +1,7 @@
 <template>
-  <div id="nav" class="grid-container" style="backgroundImage: ">
+  <div id="nav" class="grid-container">
     <div class="header-zone">
-      <router-link to="/">Startseite</router-link> |
-      <router-link to="/portfolio">Portfolio</router-link> |
-      <router-link to="/aboutme">Über mich</router-link> |
-      <router-link to="/contact">Kontakt</router-link>
+      <NavComponent/>
     </div>
     <div class="page-zone">
       <router-view/>
@@ -24,23 +21,10 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.1fr 1fr 0.1fr;
+  grid-template-rows: 0.1fr 1fr 0.05fr;
   gap: 0px 0px;
   background-image: url('~@/assets/nature.jpg');
   background-size: cover;
@@ -58,6 +42,7 @@
 
 .footer-zone{
   grid-row: 3;
+  background-color: rgb(164, 165, 146);
 }
 
 </style>
@@ -65,10 +50,12 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import FooterComponent from '@/components/FooterComponent.vue'; // @ is an alias to /src
+import NavComponent from '@/components/NavComponent.vue';
 
 @Options({
   components: {
     FooterComponent,
+    NavComponent
   },
 })
 export default class App extends Vue {}
