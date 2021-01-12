@@ -18,7 +18,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
 }
 
 .grid-container {
@@ -26,9 +26,8 @@
   grid-template-columns: 1fr;
   grid-template-rows: 0.1fr 1fr 0.05fr;
   gap: 0px 0px;
-  background-image: url('~@/assets/nature.jpg');
-  background-size: cover;
   height: 100vh;
+  background-color: #a4a592;
 }
 
 .header-zone{
@@ -38,14 +37,12 @@
 
 .page-zone{
   grid-row: 2;
-  
 }
 
 .footer-zone{
   grid-row: 3;
-  background-color: rgb(164, 165, 146);
+  background-color: #a4a592;
 }
-
 </style>
 
 <script lang="ts">
@@ -56,8 +53,11 @@ import NavComponent from '@/components/NavComponent.vue';
 @Options({
   components: {
     FooterComponent,
-    NavComponent
+    NavComponent,
+
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+
+}
 </script>

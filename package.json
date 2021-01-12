@@ -22,6 +22,7 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "typescript": "~3.9.3"
+    "typescript": "~3.9.3",
+    "vueperslides": "^3.2.0"
   }
 }

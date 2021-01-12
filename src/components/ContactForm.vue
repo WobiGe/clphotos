@@ -5,7 +5,7 @@
       classes="modal-container"
       content-class="modal-content"
     >
-      <h2>Termin buchen</h2>
+      <h2 class="modal__title">Termin buchen</h2>
       <div class="modal__content">
         <div class="form-group" style="text-align: left;">
           <label style="margin-bottom: 0px">Betreff:</label>
@@ -18,8 +18,9 @@
       </div>
       <div class="modal__action">
         <button class="btn-sm btn-dark modal__close" type="button" @click="showModal = false">x</button>
-        <button @click="sendMessage" class="btn btn-dark" type="button" >Abschicken</button>
+        <button @click="sendMessage" class="btn btn-dark" type="button" :disabled="!emailAdress" >Abschicken</button>
       </div>
+      <div class="footer_color"></div>
     </vue-final-modal>
     <button class="btn btn-dark" @click="showModal = true">Buchen</button>
   </div>
@@ -36,27 +37,36 @@
   display: flex;
   flex-direction: column;
   max-height: 90%;
+  max-width: 50%;
   margin: 0 1rem;
-  padding: 1rem;
+  padding: 1rem 0rem 0rem 0rem;
   border: 1px solid #e2e8f0;
   border-radius: 0.25rem;
   background: #fff;
+}
+.footer_color{
+   background-color: rgb(164, 165, 146);
+   height: 25px;
+   width: 100%;
+   padding: 0rem;
+   margin-top: 10px;
 }
 .modal__title {
   margin: 0 2rem 0 0;
   font-size: 1.5rem;
   font-weight: 700;
+  color: black;
 }
 .modal__content {
   flex-grow: 1;
   overflow-y: auto;
+  color: black;
 }
 .modal__action {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  padding: 1rem 0 0;
 }
 .modal__close {
   position: absolute;
