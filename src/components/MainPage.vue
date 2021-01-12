@@ -1,12 +1,13 @@
 <template>
   <div class="intro">
+    <button @click="test123"></button>
       <p>Cynthia Lippert Fotografie</p>
       <p>Gemeinsam unvergessliche Momente erleben und festhalten</p>
         <ContactForm style='display: inline-block; margin-right:15px'/>
         <button class="btn btn-dark" @click="redirectAboutMe">Über mich</button>
   </div>
     <vueper-slides :bullets="false" class="no-shadow pic" fixed-height="90vh" autoplay>
-      <vueper-slide :style="'color: black'"   duration="5000" v-for="slide in slides" :key="slide" :image="slide.image" />
+      <vueper-slide :style="'color: black'" v-for="slide in slides" :key="slide" :image="slide.image" />
     </vueper-slides>
 </template>
 
@@ -40,6 +41,7 @@
 import {Options, Vue} from 'vue-class-component'
 import ContactForm from '@/components/ContactForm.vue'
 import router from '@/router'
+import {getImage} from '@/firebase';
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
@@ -53,13 +55,14 @@ import 'vueperslides/dist/vueperslides.css'
 })
 
 export default class MainPage extends Vue{
-    data(){
-    return {
-      slides: [
-        { image: require ('@/assets/logo.png')},
-        { image: require ('@/assets/nature.jpg')},
-      ]
-    }
+  imgUrl: string = "";
+  slides: [{}] = [{}];
+
+  async beforeMount(){
+    let someVal: any;
+    this.imgUrl = await getImage();
+  this.slides.push(
+    {image: this.imgUrl})
   }
   redirectAboutMe(){
     router.push({name: 'About'})
