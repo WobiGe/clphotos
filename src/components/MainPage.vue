@@ -1,13 +1,21 @@
 <template>
   <div class="intro">
-    <button @click="test123"></button>
-      <p>Cynthia Lippert Fotografie</p>
-      <p>Gemeinsam unvergessliche Momente erleben und festhalten</p>
+      <h1>Cynthia Lippert Fotografie</h1>
+      <h4>Gemeinsam unvergessliche Momente erleben und festhalten</h4>
         <ContactForm style='display: inline-block; margin-right:15px'/>
-        <button class="btn btn-dark" @click="redirectAboutMe">Über mich</button>
+        <button class="btn btn-dark" style='font-size: 28px' @click="redirectAboutMe">Über mich</button>
   </div>
-    <vueper-slides :bullets="false" class="no-shadow pic" fixed-height="90vh" autoplay>
-      <vueper-slide :style="'color: black'" v-for="slide in slides" :key="slide" :image="slide.image" />
+    <vueper-slides
+      lazy
+      autoplay 
+      touchable="false"   
+      class="no-shadow pic" 
+      fixed-height="90vh"
+      :parallax="1" 
+      :bullets="false">
+      <vueper-slide 
+        :style="'color: black; background-color: #a4a592'" 
+        v-for="slide in slides" :key="slide" :image="slide.image" />
     </vueper-slides>
 </template>
 
@@ -17,7 +25,7 @@
   text-align: center;
   position: absolute ;
   width: 400px;
-	top: 500px;
+	top: 400px;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -33,7 +41,7 @@
 }
 
 .main-color{
-  background-color: #a4a592;;
+  background-color: #a4a592;
 }
 </style>
 
@@ -56,16 +64,18 @@ import 'vueperslides/dist/vueperslides.css'
 
 export default class MainPage extends Vue{
   imgUrl: string = "";
-  slides: [{}] = [{}];
+  slides: [{}] = [{image: require('@/assets/pic_11.jpg')}];
 
   async beforeMount(){
     let someVal: any;
-    this.imgUrl = await getImage();
-  this.slides.push(
-    {image: this.imgUrl})
-  }
-  redirectAboutMe(){
-    router.push({name: 'About'})
+    this.imgUrl = await getImage();  
+    this.slides.push(
+    { image: this.imgUrl }
+      )
+    }
+
+    redirectAboutMe(){
+      router.push({name: 'About'})
   }
 }
 </script>

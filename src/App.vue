@@ -32,7 +32,6 @@
 
 .header-zone{
   grid-row: 1;
-  outline-color: 2px dotted green;
 }
 
 .page-zone{

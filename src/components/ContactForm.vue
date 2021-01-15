@@ -22,7 +22,7 @@
       </div>
       <div class="footer_color"></div>
     </vue-final-modal>
-    <button class="btn btn-dark" @click="showModal = true">Buchen</button>
+    <button class="btn btn-dark" style='font-size: 28px' @click="showModal = true">Buchen</button>
   </div>
 </template>
 
