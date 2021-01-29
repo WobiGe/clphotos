@@ -41,6 +41,7 @@
 .footer-zone{
   grid-row: 3;
   background-color: #a4a592;
+  max-height: 50px;
 }
 </style>
 

@@ -18,6 +18,7 @@ h1{
 
 #navi{
   padding-right: 50px;
+  max-height: 50px;
 }
 
 #navi a {

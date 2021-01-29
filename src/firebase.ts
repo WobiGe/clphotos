@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import { stringifyQuery } from 'vue-router';
 
 const config = {
     apiKey: "AIzaSyBTUl-EfLvvJ2BcMdWYvOehGIwHiJNFBpM",
@@ -21,14 +22,27 @@ export const getImage = () => {
         })
     })
 }
-
 export const getAllImages = () => {
-    storageRef.listAll().then(res => {
-        res.prefixes.forEach(folder => {
-            console.log(folder.name);
+
+    let arr: [{}] = [{}];
+    arr.pop();
+
+        storageRef.listAll().then(categorie => {
+            categorie.prefixes.forEach(folder =>{
+                let imagesArr = new Array;
+                folder.listAll().then(images =>{
+                    images.items.forEach(img =>{
+                            img.getDownloadURL().then((dlUrl: string)=>{
+                            imagesArr.push(dlUrl)
+                        })
+                    })
+                    arr.push({
+                        name: folder.name,
+                        images: imagesArr
+                    })
+                })
+            })
         });
-        res.items.forEach(item => {
-            console.log(item.name);
-        })
-    })
+
+        return arr;
 }

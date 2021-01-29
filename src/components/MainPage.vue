@@ -8,7 +8,7 @@
     <vueper-slides
       lazy
       autoplay 
-      touchable="false"   
+      touchable  
       class="no-shadow pic" 
       fixed-height="90vh"
       :parallax="1" 
@@ -21,20 +21,23 @@
 
 <style>
 
+
 .intro {
   text-align: center;
   position: absolute ;
   width: 400px;
 	top: 400px;
-	bottom: 0;
+	bottom: 350px;
 	left: 0;
 	right: 0;
   margin: auto;
   z-index: 1;
 }
+
 .vueperslides__arrow{
-  color: white;
+  color: #a4a592;
 }
+
 .pic{
   z-index: 0;
   filter: brightness(60%) contrast(90%);
