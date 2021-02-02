@@ -43,6 +43,6 @@ export const getAllImages = () => {
                 })
             })
         });
-
+        
         return arr;
 }

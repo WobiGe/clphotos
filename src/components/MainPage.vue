@@ -7,10 +7,11 @@
   </div>
     <vueper-slides
       lazy
-      autoplay 
-      touchable  
+      autoplay  
       class="no-shadow pic" 
       fixed-height="90vh"
+      :dragging-distance="5"
+      :touchable="true"
       :parallax="1" 
       :bullets="false">
       <vueper-slide 
@@ -36,6 +37,8 @@
 
 .vueperslides__arrow{
   color: #a4a592;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .pic{

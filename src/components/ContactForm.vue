@@ -22,7 +22,7 @@
       </div>
       <div class="footer_color"></div>
     </vue-final-modal>
-    <button class="btn btn-dark" style='font-size: 28px' @click="showModal = true">Buchen</button>
+    <button class="btn btn-dark" style='font-size: 28px' @click="showModal = true">Buchens</button>
   </div>
 </template>
 
@@ -88,8 +88,6 @@
 
 <script lang="ts">
 import {Vue} from 'vue-class-component'
-import { defineComponent } from 'vue'
-import VueFinalModel from 'vue-final-modal'
 
 export default class ContactForm extends Vue{
     showModal = false;
