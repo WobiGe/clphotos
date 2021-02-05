@@ -1,10 +1,7 @@
 <template>
-  <div id="nav" class="grid-container" style="backgroundImage: ">
+  <div id="nav" class="grid-container">
     <div class="header-zone">
-      <router-link to="/">Startseite</router-link> |
-      <router-link to="/portfolio">Portfolio</router-link> |
-      <router-link to="/aboutme">Über mich</router-link> |
-      <router-link to="/contact">Kontakt</router-link>
+      <NavComponent/>
     </div>
     <div class="page-zone">
       <router-view/>
@@ -16,60 +13,74 @@
 </template>
 
 <style>
+
+@font-face {
+  font-family: "Pinky-Sunday";
+  src: url("assets/fonts/Pinky-Sunday.ttf") format("truetype");
+
+  font-family: "Metropolis-Bold";
+  src: url("assets/fonts/Metropolis-Bold.otf") format("truetype");
+  
+  font-family: "Metropolis-Regular";
+  src: url("assets/fonts/Metropolis-Regular.otf") format("truetype");
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  color: white;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.1fr 1fr 0.1fr;
+  grid-template-rows: 0.01fr 1fr 0.05fr;
   gap: 0px 0px;
-  background-image: url('~@/assets/nature.jpg');
-  background-size: cover;
   height: 100vh;
+  background-color: #a4a592;
 }
 
 .header-zone{
   grid-row: 1;
-  outline-color: 2px dotted green;
+  box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
 }
 
 .page-zone{
   grid-row: 2;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 
 .footer-zone{
   grid-row: 3;
-}
+  background-color: #a4a592;
+  max-height: 50px;
+  box-shadow: 0 -5px 6px rgba(0,0,0,0.2);
+  position: relative;
 
+}
+.page-zone::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
 </style>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import FooterComponent from '@/components/FooterComponent.vue'; // @ is an alias to /src
+import NavComponent from '@/components/NavComponent.vue';
 
 @Options({
   components: {
     FooterComponent,
+    NavComponent,
+
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+
+}
 </script>
