@@ -1,46 +1,41 @@
 <template>
-  <div class="intro">
+  <div class="title">
       <h1>Cynthia Lippert Fotografie</h1>
       <h4>Gemeinsam unvergessliche Momente erleben und festhalten</h4>
+      <br>
         <ContactForm style='display: inline-block; margin-right:15px'/>
-        <button class="btn btn-dark" style='font-size: 28px' @click="redirectAboutMe">Über mich</button>
+        <button class="btn btn-dark aboutme" style='font-size: 28px' @click="redirectAboutMe">Über mich</button>
   </div>
     <vueper-slides
       lazy
       autoplay  
       class="no-shadow pic" 
       fixed-height="90vh"
-      :dragging-distance="5"
-      :touchable="true"
+      :touchable="false"
       :parallax="1" 
       :bullets="false">
       <vueper-slide 
-        :style="'color: black; background-color: #a4a592'" 
         v-for="slide in slides" :key="slide" :image="slide.image" />
     </vueper-slides>
 </template>
 
-<style>
+<style scoped>
 
+h1{
+  font-family: 'Metropolis-Regular';
+  font-size: 48px;
+}
 
-.intro {
+.title {
   text-align: center;
   position: absolute ;
-  width: 400px;
-	top: 400px;
-	bottom: 350px;
+  max-width: 600px;
+	top: 42vh;
 	left: 0;
 	right: 0;
   margin: auto;
   z-index: 1;
 }
-
-.vueperslides__arrow{
-  color: #a4a592;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
 .pic{
   z-index: 0;
   filter: brightness(60%) contrast(90%);
@@ -49,6 +44,16 @@
 .main-color{
   background-color: #a4a592;
 }
+
+.aboutme{
+  background-color: #a4a592 !important;
+  border-radius: 8px !important;
+  font-family: 'Metropolis-Regular';
+  text-transform: uppercase;
+  width: 250px
+}
+
+
 </style>
 
 <script lang="ts">

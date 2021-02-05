@@ -11,7 +11,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .logos{
         margin-right: 25px;
         margin-top: 5px;

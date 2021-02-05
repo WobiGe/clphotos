@@ -22,7 +22,7 @@
       </div>
       <div class="footer_color"></div>
     </vue-final-modal>
-    <button class="btn btn-dark" style='font-size: 28px' @click="showModal = true">Buchens</button>
+    <button class="btn btn-dark book" style='font-size: 28px' @click="showModal = true">Buchen</button>
   </div>
 </template>
 
@@ -45,7 +45,7 @@
   background: #fff;
 }
 .footer_color{
-   background-color: rgb(164, 165, 146);
+   background-color: #999B84;
    height: 25px;
    width: 100%;
    padding: 0rem;
@@ -76,6 +76,14 @@
 
 .message-area {
   min-height: 250px;
+}
+
+.book{
+  background-color: #BF7A68 !important;
+  border-radius: 8px !important;
+  font-family: 'Metropolis-Regular';
+  text-transform: uppercase;
+  width: 250px;
 }
 </style>
 

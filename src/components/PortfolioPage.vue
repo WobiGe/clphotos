@@ -8,25 +8,39 @@
                     slide-multiple
                     fixed-height="500px"
                     fixed-width="500px"
+                    :gap="3"
                     :dragging-distance="70"
-                    :visible-slides="3"
+                    :visible-slides="5"
                     :arrows="true" 
                     :touchable="true" 
-                    :bullets="false">
+                    :bullets="false"
+                    @previous="logEvent(true,$event)"
+                    @next="logEvent(true,$event)">
                     <vueper-slide
                     v-for="img in categorie.images" 
                     :key="img" 
                     :image="img"
-                    ref="testRef"
-                    @dblclick="showFull($refs.imagePreviewModal, img)"/>
+                    class="highlight"
+                    @click="showFull($refs.imagePreviewModal, img)"/>
                 </vueper-slides>
             </div>
         </div>
     </div>
     <ImagePreview ref="imagePreviewModal"/>
 </template>
-
 <style>
+
+.vueperslides__arrow{
+  color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.highlight:hover{
+    filter: brightness(130%);
+    cursor: pointer;
+}
+
 </style>
 
 <script lang="ts">
@@ -49,6 +63,7 @@ export default class PortfolioPage extends Vue{
     private imagesLoaded: boolean = false;
     showFullScreen: boolean = false;
     selectedImage: any = "";
+    switchedSlide: boolean = false;
 
     async beforeMount(){
         this.categories = await getAllImages();
@@ -62,8 +77,16 @@ export default class PortfolioPage extends Vue{
     }
 
     showFull(imagePreviewModal, img){
-        imagePreviewModal.showModal = !imagePreviewModal.showModal;
-        imagePreviewModal.img = img;
+        if(!this.switchedSlide){
+            imagePreviewModal.showModal = !imagePreviewModal.showModal;
+            imagePreviewModal.img = img;
+        }
+        this.switchedSlide = false;
+    }
+
+    logEvent(slideMode, event){
+        this.switchedSlide = slideMode;
+        console.log(event)
     }
 }
 

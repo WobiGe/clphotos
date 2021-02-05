@@ -13,6 +13,18 @@
 </template>
 
 <style>
+
+@font-face {
+  font-family: "Pinky-Sunday";
+  src: url("assets/fonts/Pinky-Sunday.ttf") format("truetype");
+
+  font-family: "Metropolis-Bold";
+  src: url("assets/fonts/Metropolis-Bold.otf") format("truetype");
+  
+  font-family: "Metropolis-Regular";
+  src: url("assets/fonts/Metropolis-Regular.otf") format("truetype");
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
