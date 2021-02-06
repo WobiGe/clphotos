@@ -4,10 +4,12 @@
             <div v-for="categorie in categories" :key="categorie">
                 <p v-if="categorie.images.length > 0">{{categorie.name}}</p>
                 <vueper-slides
+                    style="margin-left:2%; margin-right:2%;"
                     v-if="categorie.images.length > 0"
                     slide-multiple
-                    fixed-height="500px"
+                    fixed-height="300px"
                     fixed-width="500px"
+                    :infinite="true"
                     :gap="3"
                     :dragging-distance="70"
                     :visible-slides="5"
@@ -39,6 +41,12 @@
 .highlight:hover{
     filter: brightness(130%);
     cursor: pointer;
+}
+
+p{
+    color:black;
+    font-family: "OdstemplikBold-ZOPz";
+    font-size: 28px;
 }
 
 </style>
@@ -86,7 +94,6 @@ export default class PortfolioPage extends Vue{
 
     logEvent(slideMode, event){
         this.switchedSlide = slideMode;
-        console.log(event)
     }
 }
 

@@ -4,13 +4,11 @@
       v-model="showModal"
       classes="modal-container"
       content-class="modal-content"
+      @click="showModal = false"
     >
       <h2 class="modal__title">Vollbildansicht</h2>
       <div class="modal__content">
-          <img class="fullscreen" :src="img">
-      </div>
-      <div class="modal__action">
-        <button class="btn-sm btn-dark modal__close" type="button" @click="showModal = false">x</button>
+          <img class="fullscreen" :src="img">          
       </div>
     </vue-final-modal>
   </div>
@@ -31,7 +29,7 @@
     top: 0;
     -o-object-fit: contain;
     object-fit: contain;
-  overflow: auto;
+    overflow: auto;
 }
 
 ::v-deep .modal-container {
@@ -58,12 +56,6 @@
   flex-grow: 1;
   overflow-y: auto;
   color: black;
-}
-
-.modal__close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
 }
 
 .modal__action {

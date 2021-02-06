@@ -14,19 +14,18 @@
 
 <style>
 
-@font-face {
-  font-family: "Pinky-Sunday";
-  src: url("assets/fonts/Pinky-Sunday.ttf") format("truetype");
-
-  font-family: "Metropolis-Bold";
-  src: url("assets/fonts/Metropolis-Bold.otf") format("truetype");
-  
+@font-face {  
   font-family: "Metropolis-Regular";
-  src: url("assets/fonts/Metropolis-Regular.otf") format("truetype");
+  src: url('~@/assets/fonts/Metropolis-Regular.otf') format("opentype");
+  }
+
+@font-face {
+  font-family: "OdstemplikBold-ZOPz";
+  src: url('~@/assets/fonts/OdstemplikBold-ZOPz.otf') format("opentype");
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -44,14 +43,16 @@
 
 .header-zone{
   grid-row: 1;
-  box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+  z-index: 1;
 }
 
 .page-zone{
   grid-row: 2;
     overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    /* scrollbar-width: none; 
+    -ms-overflow-style: none;   */
+    background-color:white;
 }
 
 .footer-zone{
@@ -62,10 +63,10 @@
   position: relative;
 
 }
-.page-zone::-webkit-scrollbar { /* WebKit */
+/* .page-zone::-webkit-scrollbar { 
     width: 0;
     height: 0;
-}
+} */
 </style>
 
 <script lang="ts">

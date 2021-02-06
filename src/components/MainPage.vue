@@ -22,8 +22,14 @@
 <style scoped>
 
 h1{
-  font-family: 'Metropolis-Regular';
-  font-size: 48px;
+  font-family: Metropolis-Regular;
+  font-weight: bolder;
+  font-size: 58px;
+}
+
+h4{
+  font-family: OdstemplikBold-ZOPz;
+  font-size: 32px;
 }
 
 .title {

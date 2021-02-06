@@ -13,14 +13,15 @@
 
 <style scoped>
     .logos{
-        margin-right: 25px;
-        margin-top: 5px;
+        margin-top: 0.25%;
+        margin-right: 0.25%;
     }
     img{
         height: 32px;
         width: 32px;
         float: right;
-        margin-right: 10px;
+        margin-right: 1%;
+        margin-bottom: 0.25%;
     }
 </style>
 

@@ -26,6 +26,7 @@ h1{
   color: white;
   padding: 15px;
   float: right;
+  font-family: "Metropolis-Regular"
 }
 
 #nav a.router-link-exact-active {
@@ -35,7 +36,6 @@ h1{
 
 <script lang="ts">
 import { Watch } from 'vue-property-decorator';
-import { Router } from 'vue-router';
 import {Vue} from 'vue-class-component'
 export default class NavComponent extends Vue{
   defaultColor = 'white';

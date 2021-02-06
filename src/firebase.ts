@@ -1,5 +1,4 @@
 import firebase from 'firebase'
-import { stringifyQuery } from 'vue-router';
 
 const config = {
     apiKey: "AIzaSyBTUl-EfLvvJ2BcMdWYvOehGIwHiJNFBpM",
