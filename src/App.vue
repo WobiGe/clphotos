@@ -30,6 +30,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .grid-container {

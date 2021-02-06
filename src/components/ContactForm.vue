@@ -96,17 +96,24 @@
 
 <script lang="ts">
 import {Vue} from 'vue-class-component'
+import emailjs from 'emailjs-com';
 
 export default class ContactForm extends Vue{
+    private emailjsConfig = {
+      serviceId: 'service_gjd73ws',
+      templateId: 'template_ck1kpas',
+      userId: 'user_IDxR8dysalYfB25UYm0u7'
+    }
     showModal = false;
     emailAdress = "";
     caption = "";
     message = "";
 
     sendMessage(){
-      this.emailAdress = "";
-      this.caption = "";
-      this.message = "";
-    }
-}
+      emailjs.send(this.emailjsConfig.serviceId,this.emailjsConfig.templateId,
+      {
+          from_name: this.emailAdress,
+          message: this.caption+"\n"+this.message
+        }, this.emailjsConfig.userId)
+}}
 </script>

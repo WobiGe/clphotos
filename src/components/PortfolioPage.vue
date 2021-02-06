@@ -4,7 +4,7 @@
             <div v-for="categorie in categories" :key="categorie">
                 <p v-if="categorie.images.length > 0">{{categorie.name}}</p>
                 <vueper-slides
-                    style="margin-left:2%; margin-right:2%;"
+                    style="margin-left:2%; margin-right:2%;   max-width: 100%; overflow-x: hidden;"
                     v-if="categorie.images.length > 0"
                     slide-multiple
                     fixed-height="300px"
