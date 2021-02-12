@@ -1,5 +1,6 @@
 <template>
   <div>
+    <form>
     <vue-final-modal
       v-model="showModal"
       classes="modal-container"
@@ -11,18 +12,20 @@
           <label style="margin-bottom: 0px">Betreff:</label>
           <input v-model="caption" style="margin-bottom: 8px" class="form-control" type="text">
           <label style="margin-bottom: 0px">E-Mail:</label>
-          <input v-model="emailAdress" style="margin-bottom: 8px" class="form-control" type="email">
+          <input id="email" v-model="emailAdress" style="margin-bottom: 8px" class="form-control" type="email">
           <label style="margin-bottom: 0px">Ihre Nachricht:</label>
           <textarea v-model="message" style="margin-bottom: 8px" class="form-control message-area"/>
+          <p>{{errorMsg}}</p>
           </div>
       </div>
       <div class="modal__action">
         <button class="btn-sm btn-dark modal__close" type="button" @click="showModal = false">x</button>
-        <button @click="sendMessage" class="btn btn-dark" type="button" :disabled="!emailAdress" >Abschicken</button>
+        <button @click.stop.prevent="sendMessage()" class="btn btn-dark" type="submit" >Abschicken</button>
       </div>
       <div class="footer_color"></div>
     </vue-final-modal>
-    <button class="btn btn-dark book" style='font-size: 28px' @click="showModal = true">Buchen</button>
+      <button class="btn btn-dark book" type="button" style='font-size: 28px' @click="showModal = true">Buchen</button>
+    </form>
   </div>
 </template>
 
@@ -61,6 +64,8 @@
   flex-grow: 1;
   overflow-y: auto;
   color: black;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .modal__action {
   display: flex;
@@ -108,12 +113,24 @@ export default class ContactForm extends Vue{
     emailAdress = "";
     caption = "";
     message = "";
+    errorMsg = "";
 
     sendMessage(){
-      emailjs.send(this.emailjsConfig.serviceId,this.emailjsConfig.templateId,
-      {
-          from_name: this.emailAdress,
-          message: this.caption+"\n"+this.message
-        }, this.emailjsConfig.userId)
-}}
+      if(this.emailAdress !== "" && this.message !== "" && this.caption !== ""){
+          emailjs.send(process.env.VUE_APP_SERVICEID,process.env.VUE_APP_TEMPLATEID,
+          {
+            from_name: this.emailAdress,
+            message: this.caption+"\n"+this.message
+          },process.env.VUE_APP_USERID)
+          this.errorMsg = "";
+          alert("Anfrage erfolgreich abgeschickt!");
+          this.showModal = false;
+        }else{
+          setTimeout(()=>{
+          this.errorMsg = "Bitte überprüfen Sie Ihre Eingabe!";
+          },1000)
+        }
+      }
+}
+      
 </script>

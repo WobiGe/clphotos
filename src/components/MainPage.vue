@@ -84,7 +84,6 @@ export default class MainPage extends Vue{
   slides: [{}] = [{image: require('@/assets/pic_11.jpg')}];
 
   async beforeMount(){
-    let someVal: any;
     this.imgUrl = await getImage();  
     this.slides.push(
     { image: this.imgUrl }
@@ -93,6 +92,7 @@ export default class MainPage extends Vue{
 
     redirectAboutMe(){
       router.push({name: 'About'})
+            console.log(process.env.VUE_APP_TESTI);
   }
 }
 </script>
