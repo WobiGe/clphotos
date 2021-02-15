@@ -1,52 +1,55 @@
 <template>
     <div>
-        <h1>Kontakt!</h1>
-        <div class="grid-container-contact">
-            <div class="grid-infos">
-                <img class="profile" src="@/assets/nature.jpg">
-            </div>
-            <div class="grid-logo">
-                <ContactForm/>
-            </div>
+        <h1>Kontakt</h1>
+        <div style="display: inline-flex; margin-top:8%" >
+        <figure>   
+            <a href="https://m.facebook.com/profile.php?id=100005253285248"><img src="@/assets/facebook_logo.svg" alt="facebook" class="logo-size"></a>
+            <figcaption>
+                Schreib mir auf Facebook
+            </figcaption>
+        </figure>
+        <figure>
+            <img src="@/assets/letter_logo.svg" alt="email" class="logo-size">
+            <figcaption>
+                Buche einen Termin
+            </figcaption>
+            <ContactForm style="text-align:center; margin-top:5%"/>
+        </figure>
+                <figure>
+            <a href="https://www.instagram.com/cynthia.lipprt/"><img src="@/assets/instagram_logo.svg" alt="instagram" class="logo-size"></a>
+            <figcaption>
+                Schreib mir auf Instagram
+            </figcaption>
+        </figure>
         </div>
     </div>
 </template>
 
 <style scoped>
+
+figcaption{
+    color: black;
+    font-family: "Metropolis-Regular";
+    font-size: 28px;
+}
+
+figure{
+    width: 80%;
+}
+
 h1{
     margin-top: 2rem;
-    font-family: Metropolis-Regular;
+    font-family: "OdstemplikBold-ZOPz";
+    font-size: 48px;
     color:black;
 }
 
-.grid-container-contact{
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr;
-  grid-template-rows: 1fr;
-  gap: 1px;
-  height: 80vh;
+.logo-size{
+    width: 256px;
+    margin-bottom: 10%;
+    filter: invert(69%) sepia(16%) saturate(250%) hue-rotate(24deg) brightness(94%) contrast(85%);
 }
 
-.grid-infos{
-    margin: 5rem;
-    grid-column: 1 / 2;
-}
-
-p{
-    font-family: Metropolis-Regular;
-}
-
-.grid-logo{
-    margin-top: 15rem;
-    margin-right: 5rem;
-    grid-column: 2 / 2;
-}
-
-.profile{
-    border-radius: 050%;
-    height: 40rem;
-    max-width: 40rem;
-}
 </style>
 
 <script lang="ts">

@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>Über mich!</h1>
+        <h1>Über mich</h1>
         <div class="grid-container-aboutme">
             <div class="grid-pic">
                 <img class="profile" src="@/assets/Profile_3.jpeg">
             </div>
             <div class="grid-text">
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <p class="aboutmetext">Mein Name ist Cynthia Lippert. Ich bin 20 Jahre alt und mache mein Hobby zu meinem Beruf. Ich habe einen pinguin-fetish, kuschel gerne mit meinem Freund und kann auch mal etwas versaut sein. Außerdem lache ich gerne über Pfirsiche :D</p>
             </div>
         </div>
     </div>
@@ -15,7 +15,8 @@
 <style scoped>
 h1{
     margin-top: 2rem;
-    font-family: Metropolis-Regular;
+    font-family: "OdstemplikBold-ZOPz";
+    font-size: 48px;
     color:black;
 }
 
@@ -32,10 +33,6 @@ h1{
     grid-column: 1 / 2;
 }
 
-p{
-    font-family: Metropolis-Regular;
-}
-
 .grid-text{
     margin-top: 13rem;
     margin-right: 5rem;
@@ -48,7 +45,10 @@ p{
   object-fit:cover;
   border-radius: 50%;
 }
-
+.aboutmetext{
+    font-family: Metropolis-Regular;
+    font-size: 28px;
+}
 
 
 </style>

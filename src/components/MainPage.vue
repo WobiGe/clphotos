@@ -6,17 +6,19 @@
         <ContactForm style='display: inline-block; margin-right:15px'/>
         <button class="btn btn-dark aboutme" style='font-size: 28px' @click="redirectAboutMe">Über mich</button>
   </div>
-    <vueper-slides
-      lazy
+  <div v-if="imagesLoaded">
+      <vueper-slides
       autoplay  
       class="no-shadow pic" 
       fixed-height="90vh"
       :touchable="false"
-      :parallax="1" 
       :bullets="false">
       <vueper-slide 
-        v-for="slide in slides" :key="slide" :image="slide.image" />
+        v-for="image in dest"
+        :key="image" 
+        :image="image"/>
     </vueper-slides>
+    </div>
 </template>
 
 <style scoped>
@@ -66,9 +68,9 @@ h4{
 import {Options, Vue} from 'vue-class-component'
 import ContactForm from '@/components/ContactForm.vue'
 import router from '@/router'
-import {getImage} from '@/firebase';
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
+import { getAllImages } from '@/firebase'
 
 @Options({
   components: {
@@ -81,18 +83,22 @@ import 'vueperslides/dist/vueperslides.css'
 
 export default class MainPage extends Vue{
   imgUrl: string = "";
-  slides: [{}] = [{image: require('@/assets/pic_11.jpg')}];
+  private imagesLoaded: boolean = false;
+  dest: any[] = [];
 
-  async beforeMount(){
-    this.imgUrl = await getImage();  
-    this.slides.push(
-    { image: this.imgUrl }
-      )
+   beforeMount(){
+        this.dest = getAllImages("mainpage");
+        this.waitForImages();
+    }
+
+    waitForImages(){
+        setTimeout(()=>{
+                this.imagesLoaded = true;
+        }, 1000)
     }
 
     redirectAboutMe(){
       router.push({name: 'About'})
-            console.log(process.env.VUE_APP_TESTI);
   }
 }
 </script>

@@ -11,21 +11,24 @@ const config = {
 
 const firebaseApp = firebase.initializeApp(config);
 const storage = firebaseApp.storage();
-const storageRef = storage.refFromURL("gs://cl-photos.appspot.com/categories");
-
-export const getImage = () => {
-    const ref = storage.refFromURL("gs://cl-photos.appspot.com/categories/Natur/pic_6.jpg");
-    return new Promise<string>((resolve) => {
-        ref.getDownloadURL().then((url: string) => {
-            resolve(url);
-        })
-    })
-}
-export const getAllImages = () => {
-
+export let getAllImages = (path:string) => {
+    const storageRef = storage.refFromURL("gs://cl-photos.appspot.com/"+path);
     let arr: [{}] = [{}];
     arr.pop();
 
+    if(path === "mainpage"){
+        let imagesArr = new Array;
+        storageRef.listAll().then(images => {
+            images.items.forEach(img =>{
+                img.getDownloadURL().then((dlUrl: string)=>{
+                    imagesArr.push(dlUrl);
+                })
+            })
+        })
+
+        return imagesArr;
+        
+    }else{
         storageRef.listAll().then(categorie => {
             categorie.prefixes.forEach(folder =>{
                 let imagesArr = new Array;
@@ -42,6 +45,6 @@ export const getAllImages = () => {
                 })
             })
         });
-        
+    }
         return arr;
 }

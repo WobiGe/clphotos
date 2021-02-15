@@ -46,7 +46,8 @@
 p{
     color:black;
     font-family: "OdstemplikBold-ZOPz";
-    font-size: 28px;
+    font-size: 46px;
+
 }
 
 </style>
@@ -67,14 +68,15 @@ import 'vueperslides/dist/vueperslides.css'
 })
 
 export default class PortfolioPage extends Vue{
-    private categories: [{}] = [{}];
+    private categories: any;
     private imagesLoaded: boolean = false;
     showFullScreen: boolean = false;
     selectedImage: any = "";
     switchedSlide: boolean = false;
 
     async beforeMount(){
-        this.categories = await getAllImages();
+        this.categories = getAllImages("categories");
+        console.log(this.categories)
         this.waitForImages();
     }
 

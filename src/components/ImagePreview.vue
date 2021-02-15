@@ -7,8 +7,11 @@
       @click="showModal = false"
     >
       <h2 class="modal__title">Vollbildansicht</h2>
+        <div class="modal__action">
+        <button class="btn-sm btn-dark modal__close" type="button" @click="showModal = false">zurück</button>
+      </div>
       <div class="modal__content">
-          <img class="fullscreen" :src="img">          
+          <img class="fullscreen" :src="img">  
       </div>
     </vue-final-modal>
   </div>
@@ -61,8 +64,7 @@
 .modal__action {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
+  z-index: 1;
 }
 </style>
 

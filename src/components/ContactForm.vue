@@ -15,7 +15,7 @@
           <input id="email" v-model="emailAdress" style="margin-bottom: 8px" class="form-control" type="email">
           <label style="margin-bottom: 0px">Ihre Nachricht:</label>
           <textarea v-model="message" style="margin-bottom: 8px" class="form-control message-area"/>
-          <p>{{errorMsg}}</p>
+          <p style="font-family: Metropolis-Regular; font-size: 12px; color: red">{{errorMsg}}</p>
           </div>
       </div>
       <div class="modal__action">
@@ -24,7 +24,7 @@
       </div>
       <div class="footer_color"></div>
     </vue-final-modal>
-      <button class="btn btn-dark book" type="button" style='font-size: 28px' @click="showModal = true">Buchen</button>
+      <button class="btn btn-dark book" type="button" style='font-size: 28px' @click="showModal = true" >Buchen</button>
     </form>
   </div>
 </template>
