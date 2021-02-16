@@ -124,11 +124,13 @@ export default class ContactForm extends Vue{
       if(this.emailAdress !== "" && this.message !== "" && this.caption !== ""){
           emailjs.send(process.env.VUE_APP_SERVICEID,process.env.VUE_APP_TEMPLATEID,
           {
+            caption: this.caption,
             from_name: this.emailAdress,
-            message: this.caption+"\n"+this.message
+            message: this.message
           },process.env.VUE_APP_USERID)
           this.errorMsg = "";
           this.showModal = false;
+          alert("Anfrage erfolgreich abgeschickt!");
         }else{
           this.errorMsg = "Bitte überprüfen Sie Ihre Eingabe!";
         }
