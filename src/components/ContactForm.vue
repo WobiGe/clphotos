@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form>
+    <form name="form_contact">
     <vue-final-modal
       v-model="showModal"
       classes="modal-container"
@@ -10,17 +10,20 @@
       <div class="modal__content">
         <div class="form-group" style="text-align: left;">
           <label style="margin-bottom: 0px">Betreff:</label>
-          <input v-model="caption" style="margin-bottom: 8px" class="form-control" type="text">
+          <input v-model="caption" style="margin-bottom: 8px" class="form-control" type="text" :minlength="validation.min" required>
+          <!-- <div style="font-family: Metropolis-Regular; font-size: 12px; color: red" v-if="caption.length < validation.min">Bitte mindestens {{validation.min}} Zeichen eingeben</div> -->
           <label style="margin-bottom: 0px">E-Mail:</label>
-          <input id="email" v-model="emailAdress" style="margin-bottom: 8px" class="form-control" type="email">
+          <input id="email" v-model="emailAdress" style="margin-bottom: 8px" class="form-control" type="email" required>
           <label style="margin-bottom: 0px">Ihre Nachricht:</label>
-          <textarea v-model="message" style="margin-bottom: 8px" class="form-control message-area"/>
+          <textarea v-model="message" style="margin-bottom: 8px" class="form-control message-area" :minlength="validation.min_message" :maxlength="validation.max" required/>
+          <!-- <div style="font-family: Metropolis-Regular; font-size: 12px; color: red" v-if="message.length < validation.min_message">Bitte mindestens {{validation.min_message}} eingeben</div> -->
+          <!-- <div style="font-family: Metropolis-Regular; font-size: 12px; color: red" v-if="message.length > validation.max">Bitte nicht mehr als {{validation.max}} Zeichen eingeben</div> -->
           <p style="font-family: Metropolis-Regular; font-size: 12px; color: red">{{errorMsg}}</p>
           </div>
       </div>
       <div class="modal__action">
         <button class="btn-sm btn-dark modal__close" type="button" @click="showModal = false">x</button>
-        <button @click.stop.prevent="sendMessage()" class="btn btn-dark" type="submit" >Abschicken</button>
+        <button @click.stop.prevent="sendMessage()" class="btn btn-dark" type="submit" :disabled="!isEmailValid" >Abschicken</button>
       </div>
       <div class="footer_color"></div>
     </vue-final-modal>
@@ -100,20 +103,22 @@
 </style>
 
 <script lang="ts">
-import {Vue} from 'vue-class-component'
+import {Options, Vue} from 'vue-class-component'
 import emailjs from 'emailjs-com';
-
+import { Watch } from 'vue-property-decorator';
 export default class ContactForm extends Vue{
-    private emailjsConfig = {
-      serviceId: 'service_gjd73ws',
-      templateId: 'template_ck1kpas',
-      userId: 'user_IDxR8dysalYfB25UYm0u7'
-    }
     showModal = false;
+    private validation = {
+      min: 8,
+      min_message: 32,
+      max: 500
+    }
+
     emailAdress = "";
     caption = "";
     message = "";
     errorMsg = "";
+    isEmailValid = false;
 
     sendMessage(){
       if(this.emailAdress !== "" && this.message !== "" && this.caption !== ""){
@@ -123,14 +128,19 @@ export default class ContactForm extends Vue{
             message: this.caption+"\n"+this.message
           },process.env.VUE_APP_USERID)
           this.errorMsg = "";
-          alert("Anfrage erfolgreich abgeschickt!");
           this.showModal = false;
         }else{
-          setTimeout(()=>{
           this.errorMsg = "Bitte überprüfen Sie Ihre Eingabe!";
-          },1000)
         }
       }
+     @Watch('emailAdress', {immediate: true, deep: true})
+     emailValid() {
+      if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.emailAdress)){
+        this.isEmailValid = true;
+      }else{
+        this.isEmailValid = false;
+      }
+    }
 }
       
 </script>

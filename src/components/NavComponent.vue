@@ -1,11 +1,13 @@
 <template>
     <div>
-      <h1>Logo-Placeholder</h1>
+      <img src="@/assets/CL_Logo.png" style="float: left; margin-left: 1%; height: 3rem;">
       <nav id="navi">
         <router-link :style="{color: defaultColor}" to="/contact">Kontakt</router-link>
         <router-link :style="{color: defaultColor}" to="/aboutme">Über mich</router-link> 
         <router-link :style="{color: defaultColor}" to="/portfolio">Portfolio</router-link> 
+        <keep-alive>
         <router-link :style="{color: defaultColor}" to="/">Startseite</router-link> 
+        </keep-alive>
       </nav>
     </div>
 </template>

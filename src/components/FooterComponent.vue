@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="logos">
-            <a ref="test" href="https://www.instagram.com/cynthia.lipprt/">
+            <a target="_blank" ref="test" href="https://www.instagram.com/cynthia.lipprt/">
                 <img src="@/assets/instagram_logo.svg" alt="instagram">
             </a>
-            <a href="https://m.facebook.com/profile.php?id=100005253285248">
+            <a target="_blank" href="https://m.facebook.com/profile.php?id=100005253285248">
                 <img src="@/assets/facebook_logo.svg" alt="facebook">
             </a>
         </div>

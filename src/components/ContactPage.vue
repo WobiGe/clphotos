@@ -3,7 +3,7 @@
         <h1>Kontakt</h1>
         <div style="display: inline-flex; margin-top:8%" >
         <figure>   
-            <a href="https://m.facebook.com/profile.php?id=100005253285248"><img src="@/assets/facebook_logo.svg" alt="facebook" class="logo-size"></a>
+            <a target="_blank" href="https://m.facebook.com/profile.php?id=100005253285248"><img src="@/assets/facebook_logo.svg" alt="facebook" class="logo-size"></a>
             <figcaption>
                 Schreib mir auf Facebook
             </figcaption>
@@ -16,7 +16,7 @@
             <ContactForm style="text-align:center; margin-top:5%"/>
         </figure>
                 <figure>
-            <a href="https://www.instagram.com/cynthia.lipprt/"><img src="@/assets/instagram_logo.svg" alt="instagram" class="logo-size"></a>
+            <a target="_blank" href="https://www.instagram.com/cynthia.lipprt/"><img src="@/assets/instagram_logo.svg" alt="instagram" class="logo-size"></a>
             <figcaption>
                 Schreib mir auf Instagram
             </figcaption>

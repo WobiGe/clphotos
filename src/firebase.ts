@@ -1,12 +1,12 @@
 import firebase from 'firebase'
 
 const config = {
-    apiKey: "AIzaSyBTUl-EfLvvJ2BcMdWYvOehGIwHiJNFBpM",
-    authDomain: "cl-photos.firebaseapp.com",
-    projectId: "cl-photos",
-    storageBucket: "cl-photos.appspot.com",
-    messagingSenderId: "742308374958",
-    appId: "1:742308374958:web:2487e9169771f5af56803f"
+    apiKey: process.env.VUE_APP_API_KEY,
+    authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+    projectId: process.env.VUE_APP_PROJECT_ID,
+    storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+    appId: process.env.VUE_APP_APP_ID
   };
 
 const firebaseApp = firebase.initializeApp(config);

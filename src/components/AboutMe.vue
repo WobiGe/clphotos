@@ -6,7 +6,7 @@
                 <img class="profile" src="@/assets/Profile_3.jpeg">
             </div>
             <div class="grid-text">
-                <p class="aboutmetext">Mein Name ist Cynthia Lippert. Ich bin 20 Jahre alt und mache mein Hobby zu meinem Beruf. Ich habe einen pinguin-fetish, kuschel gerne mit meinem Freund und kann auch mal etwas versaut sein. Außerdem lache ich gerne über Pfirsiche :D</p>
+                <p class="aboutmetext"><b>Hallo ich bin Cynthia!</b><br>{{aboutMeText}}</p>
             </div>
         </div>
     </div>
@@ -57,8 +57,14 @@ h1{
 import {Vue} from 'vue-class-component'
 export default class AboutMe extends Vue{
 
-    test(){
-        alert("test");
-    }
+private aboutMeText = `
+Als Hobbyfotografin habe ich es mir zur Aufgabe gemacht, euch zu begleiten und wunderschöne Momente für euch einzufangen. 
+
+Egal ob Geburt, die große Liebe, die Verlobung und die Hochzeit oder auch die Familiengründung. 
+Gerne sorge ich dafür, dass ihr mit einem Shooting, Momente für die Ewigkeit festhalten könnt. 
+
+Dabei steht immer ihr und eure Emotionen im Mittelpunkt! 
+
+Lasst uns gemeinsam wunderschöne Erinnerungen nach euren Wünschen schaffen!`
 }
 </script>
