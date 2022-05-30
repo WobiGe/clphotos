@@ -52,8 +52,8 @@
 .page-zone{
   grid-row: 2;
     overflow-y: scroll;
-    /* scrollbar-width: none; 
-    -ms-overflow-style: none;   */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
     background-color:white;
 }
 
@@ -65,10 +65,10 @@
   position: relative;
 
 }
-/* .page-zone::-webkit-scrollbar { 
+.page-zone::-webkit-scrollbar { 
     width: 0;
     height: 0;
-} */
+}
 </style>
 
 <script lang="ts">
